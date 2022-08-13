@@ -1,3 +1,3 @@
-const colors = ["blue", "success", "red", "lime"];
+const colors = ["blue", "success", "red", "lime", "cyan"];
 
 export { colors };
