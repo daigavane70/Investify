@@ -3,6 +3,7 @@ import "./App.css";
 import AllStartups from "./pages/AllStartups";
 import Bids from "./pages/Bids";
 import Home from "./pages/Home";
+import Chat from "./pages/Chat";
 import Messaging from "./pages/Messaging";
 import { Button, Layout, Menu } from "antd";
 import React, { useState } from "react";
@@ -105,7 +106,9 @@ function App() {
               <Route
                 path="/messaging"
                 element={<Messaging></Messaging>}
-              ></Route>
+              >
+              </Route>
+              <Route path="/messaging/:sender/:receiver" element={<Chat></Chat>}></Route>
               <Route path="/" element={<Home />}></Route>
             </Routes>
           </Content>
