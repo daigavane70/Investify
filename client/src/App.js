@@ -1,4 +1,4 @@
-import { Route, Routes, useNavigate } from "react-router-dom";
+import { Link, Route, Routes, useNavigate } from "react-router-dom";
 import "./App.css";
 import AllStartups from "./pages/AllStartups";
 import Bids from "./pages/Bids";
@@ -36,13 +36,7 @@ function App(props) {
       <Spin spinning={props.loading} tip={props.loadingMessage}>
         <Layout style={{ height: "100vh" }}>
           <Sider trigger={null} collapsible collapsed={collapsed}>
-            <Button
-              style={{
-                width: "100%",
-                margin: "4px 0px",
-                boxSizing: "border-boxs",
-              }}
-            >
+            <Button className=" text-white border-none text-xl font-bold text-center px-6 py-4 border-b border-white mb-6">
               Investify
             </Button>
             <Menu
@@ -86,15 +80,17 @@ function App(props) {
             />
           </Sider>
           <Layout className="site-layout">
-            <Header className="site-layout-backgrounds">
+            <Header className="site-layout-backgrounds items-center">
               {React.createElement(
                 collapsed ? MenuUnfoldOutlined : MenuFoldOutlined,
                 {
-                  className: "trigger",
+                  className: "trigger p-0 text-white",
                   onClick: () => setCollapsed(!collapsed),
                 }
               )}
-              <Button className="float-right">Login</Button>
+              <Link to="/login">
+                <Button className="float-right text-white my-4">Login</Button>
+              </Link>
             </Header>
             <Content
               className="site-layout-background"
