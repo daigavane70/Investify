@@ -7,6 +7,7 @@ import Messaging from "./pages/Messaging";
 import { Button, Layout, Menu, Spin } from "antd";
 import React, { useEffect, useState } from "react";
 import "antd/dist/antd.css";
+import "tailwindcss/tailwind.css";
 import {
   HomeFilled,
   MenuFoldOutlined,
@@ -18,6 +19,7 @@ import {
 import Chat from "./pages/Chat";
 import { connect } from "react-redux";
 import { startLoading, stopLoading } from "./store/actions";
+import Login from "./pages/Login";
 
 const { Header, Sider, Content } = Layout;
 function App(props) {
@@ -116,6 +118,7 @@ function App(props) {
                   path="/messaging/:userId/:receiverId"
                   element={<Chat></Chat>}
                 ></Route>
+                <Route path="/login" element={<Login />}></Route>
                 <Route path="/" element={<Home />}></Route>
               </Routes>
             </Content>
