@@ -40,9 +40,15 @@ const Chat = () => {
   const { sender, receiver } = useParams();
   return (
     <>
-      <Card title="Chat" style={{ textAlign: "center", width: 300 }}>
-        <Card.Grid hoverable={false}>Content</Card.Grid>
-      </Card>
+      <div>
+        {messageList.map((msg) => {
+          return (
+            <div className="">
+              <div>msg</div>
+            </div>
+          );
+        })}
+      </div>
       <div className="flex space-x-2">
         <Input value={message} onChange={(e) => setMessage(e.target.value)} />
         <Button onClick={sendMessage} type="primary" className="text-blue-400">
