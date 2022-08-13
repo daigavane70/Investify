@@ -15,6 +15,7 @@ import {
   StockOutlined,
   UnorderedListOutlined,
 } from "@ant-design/icons";
+import Chat from "./pages/Chat";
 
 const { Header, Sider, Content } = Layout;
 function App() {
@@ -98,6 +99,10 @@ function App() {
               <Route
                 path="/messaging"
                 element={<Messaging></Messaging>}
+              ></Route>
+              <Route
+                path="/messaging/:userId/:receiverId"
+                element={<Chat></Chat>}
               ></Route>
               <Route path="/" element={<Home />}></Route>
             </Routes>
