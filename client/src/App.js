@@ -14,9 +14,6 @@ import {
   MessageFilled,
   StockOutlined,
   UnorderedListOutlined,
-  UploadOutlined,
-  UserOutlined,
-  VideoCameraOutlined,
 } from "@ant-design/icons";
 
 const { Header, Sider, Content } = Layout;
@@ -25,7 +22,7 @@ function App() {
   const navigate = useNavigate();
   return (
     <div className="App">
-      <Layout>
+      <Layout style={{ height: "100vh" }}>
         <Sider trigger={null} collapsible collapsed={collapsed}>
           <Button
             style={{
@@ -77,12 +74,7 @@ function App() {
           />
         </Sider>
         <Layout className="site-layout">
-          <Header
-            className="site-layout-background"
-            style={{
-              padding: 0,
-            }}
-          >
+          <Header className="site-layout-backgrounds">
             {React.createElement(
               collapsed ? MenuUnfoldOutlined : MenuFoldOutlined,
               {
@@ -90,6 +82,7 @@ function App() {
                 onClick: () => setCollapsed(!collapsed),
               }
             )}
+            <Button className="float-right">Login</Button>
           </Header>
           <Content
             className="site-layout-background"
