@@ -6,6 +6,7 @@ const userRoutes = require("./routers/user.router");
 const cors = require("cors");
 const http = require("http");
 const { Server } = require("socket.io");
+const Startup = require("./models/startup.model");
 
 app.use(cors());
 app.use(express.json());
@@ -28,6 +29,11 @@ const io = new Server(server, {
 
 io.on("connection", (socket) => {
   console.log("connected with id: " + socket.id);
+
+  socket.on("send_message", (data) => {
+    console.log("[send_message] data: " + JSON.stringify(data));
+  });
+
   socket.on("disconnect", () => {
     console.log("disconneced from id: " + socket.id);
   });
