@@ -6,10 +6,12 @@ const userRoutes = require("./routers/user.router");
 const cors = require("cors");
 const http = require("http");
 const { Server } = require("socket.io");
-const Startup = require("./models/startup.model");
+const startupRouter = require("./routers/startup.router");
+const askRouter = require("./controllers/ask.controller");
 
 app.use(cors());
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 // db connection
 connectDB();
@@ -17,6 +19,8 @@ connectDB();
 
 app.use("/chat", chatRoutes);
 app.use("/api/users", userRoutes);
+app.use("/api/startup", startupRouter);
+app.use("/api/ask", askRouter);
 
 const server = http.createServer(app);
 
@@ -32,6 +36,8 @@ io.on("connection", (socket) => {
 
   socket.on("send_message", (data) => {
     console.log("[send_message] data: " + JSON.stringify(data));
+    // mongodb functionality
+    socket.emit("receive_message", data);
   });
 
   socket.on("disconnect", () => {

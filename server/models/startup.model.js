@@ -8,6 +8,6 @@ const startupSchema = new Schema({
   domains: { type: [String], default: [] },
 });
 
-const Startup = mongoose.model("Error", startupSchema);
+const Startup = mongoose.model("Startup", startupSchema);
 
 module.exports = Startup;

@@ -15,11 +15,11 @@ const askSchema = new Schema({
     required: true,
   },
   bids: {
-    type: Number,
+    type: [{}],
     default: 0,
   },
 });
 
-const Ask = mongoose.model("Ask", errorSchema);
+const Ask = mongoose.model("Ask", askSchema);
 
 module.exports = Ask;

@@ -34,7 +34,7 @@ function App(props) {
   return (
     <div className="App">
       <Spin spinning={props.loading} tip={props.loadingMessage}>
-        <Layout style={{ height: "100vh" }}>
+        <Layout style={{ height: "100vh", overflow: "auto" }}>
           <Sider trigger={null} collapsible collapsed={collapsed}>
             <Button className=" text-white border-none text-xl font-bold text-center px-6 py-4 border-b border-white mb-6">
               Investify
